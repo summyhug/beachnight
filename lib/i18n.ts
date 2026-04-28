@@ -127,9 +127,9 @@ export const dict: Record<Locale, Dict> = {
       statOneNight: "to show we care",
       whatTitle: "What Beachnight is",
       whatBody1:
-        "Beachnight creates a global moment of unity on the coasts. People, families, and organizations illuminate beaches together to celebrate their beauty and remind the world that these places are worth protecting.",
+        "Beachnight is intended to create a moment frozen in time. A moment of unity for people living on the coasts all around the world. A moment in which we illuminate the beaches of the world. To cherish their beauty, to thank them for giving us so much happiness and also to spend a joyful, happy night together.",
       whatBody2:
-        "Join as an individual or with a business, school, or community group. It is simple, joyful, and meaningful: one night, shared across shores everywhere.",
+        "Of course Beachnight is also a call for action. A call to motivate people all around the world to make a difference, to make a contribution to vastly reduce greenhouse gas emissions and to save as many beaches as possible.",
       whenLabel: "When is Beachnight",
       register: "Register to participate",
       readStory: "Read the full story",
@@ -138,11 +138,11 @@ export const dict: Record<Locale, Dict> = {
       title: "About Beachnight",
       missionTitle: "Our Mission",
       missionP1:
-        "Our beaches are extraordinary places between land and water. They give us joy, peace, and unforgettable moments. For many people, they also support livelihoods and local communities.",
+        "Our beaches are wonderful places. They are magical places between land and water. They give us moments of happiness, fun and peace. For many people, even their livelihoods depend on a beach.",
       missionP2:
-        "Yet sea-level rise and climate change are putting many coastlines at risk. Beachnight creates one shared moment in time: people on coasts around the world illuminate their beaches to celebrate their beauty and stand together for their future.",
+        "Yet, as it looks today, these extraordinary places are going to disappear one by one as the sea level rises.",
       missionP3:
-        "It is a joyful global moment, but also a call for action: reduce greenhouse gas emissions, support local coastal protection, and help save as many beaches as possible.",
+        "For me, even though I am aware of this situation, it’s quite unthinkable to live in a world where most or all of the beaches have just disappeared.",
       participateTitle: "How To Participate",
       participate1:
         "Beachnight is quite simple: You just go to a beach before sunset.",
