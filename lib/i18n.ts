@@ -15,7 +15,9 @@ type Dict = {
   };
   home: {
     statsHeading: string;
+    statThreatenedHeadline: string;
     statThreatened: string;
+    statCoastlineHeadline: string;
     statCoastlineCountries: string;
     statOneNight: string;
     whatTitle: string;
@@ -63,11 +65,11 @@ type Dict = {
   footer: {
     tagline: string;
     quickLinks: string;
-    newsletter: string;
-    emailPlaceholder: string;
-    join: string;
+    updatesBlurb: string;
+    updatesLinkLabel: string;
     shareTitle: string;
     shareText: string;
+    aiVideoNote: string;
   };
 };
 
@@ -128,8 +130,12 @@ export const dict: Record<Locale, Dict> = {
     },
     home: {
       statsHeading: "Beachnight by the numbers",
-      statThreatened: "of beaches threatened by 2050",
-      statCoastlineCountries: "countries with coastline",
+      statThreatenedHeadline: "Rising seas",
+      statThreatened:
+        "Climate projections show widespread sandy‑beach erosion and retreat; how much and how fast depends on warming, local geography, and shoreline type.",
+      statCoastlineHeadline: "~150",
+      statCoastlineCountries:
+        "UN member states border the ocean (landlocked members are the exception; counts differ if territories are included).",
       statOneNight: "to show we care",
       whatTitle: "What Beachnight is",
       whatP1:
@@ -192,12 +198,14 @@ export const dict: Record<Locale, Dict> = {
     footer: {
       tagline: "One Night. Every Shore. One Signal.",
       quickLinks: "Quick Links",
-      newsletter: "Newsletter",
-      emailPlaceholder: "Your email",
-      join: "Join",
+      updatesBlurb:
+        "No mailing list. Use the {join} — that’s the only way we’ll send updates.",
+      updatesLinkLabel: "Join page",
       shareTitle: "Share the night",
       shareText:
         "When you post photos or video, use #{tag1} and #{tag2} so we can find your story.",
+      aiVideoNote:
+        "The event preview video was made with AI to imagine what Beachnight could look like.",
     },
   },
   es: {
@@ -215,8 +223,12 @@ export const dict: Record<Locale, Dict> = {
     },
     home: {
       statsHeading: "Beachnight en cifras",
-      statThreatened: "de playas amenazadas para 2050",
-      statCoastlineCountries: "países con costa",
+      statThreatenedHeadline: "Mar en alza",
+      statThreatened:
+        "Los estudios climáticos proyectan erosión y retroceso generalizados de playas arenosas; el alcance depende del calentamiento, la geografía local y el tipo de costa.",
+      statCoastlineHeadline: "~150",
+      statCoastlineCountries:
+        "Estados miembros de la ONU tienen costa oceánica (los sin litoral son la excepción; las cifras varían si se incluyen territorios).",
       statOneNight: "para demostrar que nos importa",
       whatTitle: "Qué es Beachnight",
       whatP1:
@@ -279,12 +291,14 @@ export const dict: Record<Locale, Dict> = {
     footer: {
       tagline: "Una noche. Cada costa. Una señal.",
       quickLinks: "Enlaces rápidos",
-      newsletter: "Boletín",
-      emailPlaceholder: "Tu correo",
-      join: "Unirme",
+      updatesBlurb:
+        "No hay lista de correo. Entra en {join}: es la única forma de recibir novedades.",
+      updatesLinkLabel: "la página de registro",
       shareTitle: "Comparte la noche",
       shareText:
         "Cuando publiques fotos o video, usa #{tag1} y #{tag2} para que podamos encontrar tu historia.",
+      aiVideoNote:
+        "El video de muestra del evento se creó con IA para imaginar cómo podría verse Beachnight.",
     },
   },
   pt: {
@@ -302,8 +316,12 @@ export const dict: Record<Locale, Dict> = {
     },
     home: {
       statsHeading: "Beachnight em números",
-      statThreatened: "de praias ameaçadas até 2050",
-      statCoastlineCountries: "países com litoral",
+      statThreatenedHeadline: "Mar a subir",
+      statThreatened:
+        "Estudos climáticos projetam erosão e recuo generalizados de praias arenosas; o quanto e quão rápido depende do aquecimento, da geografia local e do tipo de costa.",
+      statCoastlineHeadline: "~150",
+      statCoastlineCountries:
+        "Estados-membros da ONU fazem fronteira com o oceano (os sem litoral são a exceção; totais mudam se territórios forem incluídos).",
       statOneNight: "para mostrar que nos importamos",
       whatTitle: "O que é o Beachnight",
       whatP1:
@@ -366,12 +384,14 @@ export const dict: Record<Locale, Dict> = {
     footer: {
       tagline: "Uma noite. Cada costa. Um sinal.",
       quickLinks: "Links rápidos",
-      newsletter: "Newsletter",
-      emailPlaceholder: "Seu e-mail",
-      join: "Participar",
+      updatesBlurb:
+        "Sem lista de e-mails. Use {join} — é o único jeito de recebermos novidades.",
+      updatesLinkLabel: "a página de inscrição",
       shareTitle: "Compartilhe a noite",
       shareText:
         "Quando publicar fotos ou vídeos, use #{tag1} e #{tag2} para que possamos encontrar sua história.",
+      aiVideoNote:
+        "O vídeo de prévia do evento foi feito com IA para imaginar como o Beachnight poderia parecer.",
     },
   },
 };

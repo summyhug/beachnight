@@ -5,7 +5,7 @@
 export const beachnightEvent = {
   dateTimeIso: null as string | null,
   dateLabel: "Date to be announced",
-  timeLabel: "8:00 PM – 11:59 PM",
+  timeLabel: "Right before sunset",
   timeNote:
-    "Local time wherever you are — one shared calendar night, coast to coast.",
+    "Local sunset on your beach — arrive while it’s still light, then light up the shore as the sky fades.",
 } as const;

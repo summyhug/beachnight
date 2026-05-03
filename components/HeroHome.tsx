@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   beachPairings,
-  orderPairingsForViewer,
+  buildTickerPairingsOrder,
+  type BeachPairing,
 } from "@/data/beachPairings";
 import { useDictionary } from "@/components/LanguageProvider";
 import { onSamePageHashClick } from "@/lib/hashNav";
@@ -15,14 +16,19 @@ const ROTATE_MS = 6000;
 export default function HeroHome() {
   const pathname = usePathname();
   const t = useDictionary();
-  const [lines, setLines] = useState(() =>
-    beachPairings.map((p) => t.hero.noWithout(p.region, p.beach))
+  const [pairingOrder, setPairingOrder] = useState<BeachPairing[]>(() =>
+    buildTickerPairingsOrder(beachPairings, null)
   );
   const [tick, setTick] = useState(0);
   const [mounted, setMounted] = useState(false);
 
-  const i = tick % lines.length;
-  const line = lines[i] ?? lines[0];
+  const lines = useMemo(
+    () => pairingOrder.map((p) => t.hero.noWithout(p.region, p.beach)),
+    [pairingOrder, t.hero]
+  );
+
+  const i = lines.length ? tick % lines.length : 0;
+  const line = lines[i] ?? "";
 
   useEffect(() => {
     setMounted(true);
@@ -34,24 +40,18 @@ export default function HeroHome() {
       .then((r) => r.json())
       .then((data: { country: string | null }) => {
         if (cancelled) return;
-        const ordered = orderPairingsForViewer(beachPairings, data.country);
-        setLines(ordered.map((p) => t.hero.noWithout(p.region, p.beach)));
+        setPairingOrder(buildTickerPairingsOrder(beachPairings, data.country));
         setTick(0);
       })
       .catch(() => {});
     return () => {
       cancelled = true;
     };
-  }, [t.hero]);
-
-  useEffect(() => {
-    setLines(beachPairings.map((p) => t.hero.noWithout(p.region, p.beach)));
-    setTick(0);
-  }, [t.hero]);
+  }, []);
 
   useEffect(() => {
     if (!mounted) return;
-    const id = window.setInterval(() => setTick((t) => t + 1), ROTATE_MS);
+    const id = window.setInterval(() => setTick((x) => x + 1), ROTATE_MS);
     return () => window.clearInterval(id);
   }, [mounted]);
 
