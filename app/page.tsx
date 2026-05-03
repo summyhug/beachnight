@@ -17,8 +17,8 @@ export default function Home() {
   const pathname = usePathname();
   const t = useDictionary();
   const stats = [
-    { stat: "30%", label: t.home.statThreatened },
-    { stat: "190+", label: t.home.statCoastlineCountries },
+    { stat: t.home.statThreatenedHeadline, label: t.home.statThreatened },
+    { stat: t.home.statCoastlineHeadline, label: t.home.statCoastlineCountries },
     { stat: "1 night", label: t.home.statOneNight },
   ];
 

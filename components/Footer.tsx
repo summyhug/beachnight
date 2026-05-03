@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import { beachnightHashtags } from "@/data/beachnightShare";
 import { useDictionary } from "@/components/LanguageProvider";
 import { onSamePageHashClick } from "@/lib/hashNav";
@@ -102,16 +101,25 @@ const socialLinks = [
   },
 ] as const;
 
+function UpdatesBlurb({ linkLabel, template }: { linkLabel: string; template: string }) {
+  const parts = template.split("{join}");
+  if (parts.length !== 2) {
+    return <p className="text-white/60 font-body text-xs leading-relaxed">{template}</p>;
+  }
+  return (
+    <p className="text-white/60 font-body text-xs leading-relaxed">
+      {parts[0]}
+      <Link href="/join" className="text-teal underline underline-offset-2 hover:text-teal/90">
+        {linkLabel}
+      </Link>
+      {parts[1]}
+    </p>
+  );
+}
+
 export default function Footer() {
   const pathname = usePathname();
-  const [email, setEmail] = useState("");
   const t = useDictionary();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Mock submit - no backend
-    setEmail("");
-  };
 
   return (
     <footer className="bg-ocean border-t border-teal/20 mt-auto">
@@ -151,24 +159,6 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="font-display font-semibold text-gold mb-3">
-              {t.footer.newsletter}
-            </h4>
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={t.footer.emailPlaceholder}
-                className="flex-1 px-3 py-2 bg-white/5 border border-teal/30 rounded text-white placeholder-white/40 font-body text-sm focus:outline-none focus:border-teal"
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-gold text-ocean font-body font-semibold text-sm rounded hover:bg-gold/90 transition-colors"
-              >
-                {t.footer.join}
-              </button>
-            </form>
-            <h4 className="font-display font-semibold text-gold mb-2 mt-6">
               {t.footer.shareTitle}
             </h4>
             <p className="text-white/60 font-body text-xs leading-relaxed mb-3">
@@ -190,10 +180,18 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            <div className="mt-5 pt-5 border-t border-teal/15">
+              <UpdatesBlurb linkLabel={t.footer.updatesLinkLabel} template={t.footer.updatesBlurb} />
+            </div>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-teal/20 text-center text-white/50 font-body text-sm">
-          © {new Date().getFullYear()} Beachnight. All rights reserved.
+        <div className="mt-8 pt-8 border-t border-teal/20 space-y-3 text-center">
+          <p className="text-white/45 font-body text-[0.7rem] sm:text-xs leading-relaxed max-w-2xl mx-auto">
+            {t.footer.aiVideoNote}
+          </p>
+          <p className="text-white/50 font-body text-sm">
+            © {new Date().getFullYear()} Beachnight. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

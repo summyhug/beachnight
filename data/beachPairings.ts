@@ -13,16 +13,90 @@ export function lineForPair(p: BeachPairing): string {
   return p.line;
 }
 
-/** Put pairings matching the visitor’s country first; stable order within each group. */
-export function orderPairingsForViewer(
+const pairingKey = (p: BeachPairing) => `${p.region}\0${p.beach}`;
+
+function shuffleArray<T>(items: T[], rng: () => number): T[] {
+  const a = [...items];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/**
+ * Hero ticker order:
+ * - First line: a beach in the visitor’s country (random among matches).
+ * - Remaining lines: shuffled mix; ~30% of slots (when possible) are from the visitor’s country.
+ * - Unknown / no match: fully shuffled global list.
+ */
+export function buildTickerPairingsOrder(
   pairings: BeachPairing[],
-  country: string | null | undefined
+  country: string | null | undefined,
+  rng: () => number = Math.random
 ): BeachPairing[] {
-  if (!country) return [...pairings];
-  const cc = country.toUpperCase();
-  const match = pairings.filter((p) => p.countryCode === cc);
-  const rest = pairings.filter((p) => p.countryCode !== cc);
-  return [...match, ...rest];
+  const n = pairings.length;
+  if (n <= 1) return [...pairings];
+
+  const cc = country?.trim().toUpperCase() ?? "";
+  const isRegional = (p: BeachPairing) =>
+    Boolean(cc) && p.countryCode === cc && p.countryCode !== "ZZ";
+
+  const regional = pairings.filter(isRegional);
+  if (!cc || regional.length === 0) {
+    return shuffleArray(pairings, rng);
+  }
+
+  const shuffledRegional = shuffleArray(regional, rng);
+  const first = shuffledRegional[0];
+  const firstKey = pairingKey(first);
+
+  const regionalRest = shuffleArray(
+    regional.filter((p) => pairingKey(p) !== firstKey),
+    rng
+  );
+  const globalRest = shuffleArray(
+    pairings.filter((p) => !isRegional(p) && pairingKey(p) !== firstKey),
+    rng
+  );
+
+  const targetRegionalTotal = Math.min(
+    regional.length,
+    Math.max(1, Math.round(0.3 * n))
+  );
+  const wantRegionalInRest = Math.min(
+    regionalRest.length,
+    Math.max(0, targetRegionalTotal - 1)
+  );
+
+  const slots = n - 1;
+  const preferRegional = shuffleArray(
+    Array.from({ length: slots }, (_, i) => i < wantRegionalInRest),
+    rng
+  );
+
+  const out: BeachPairing[] = [first];
+  let r = 0;
+  let g = 0;
+
+  for (let i = 0; i < slots; i++) {
+    const pickRegionalFirst = preferRegional[i];
+    const tryRegional = () => {
+      if (r < regionalRest.length) return regionalRest[r++];
+      return null;
+    };
+    const tryGlobal = () => {
+      if (g < globalRest.length) return globalRest[g++];
+      return null;
+    };
+
+    const choice = pickRegionalFirst
+      ? tryRegional() ?? tryGlobal()
+      : tryGlobal() ?? tryRegional();
+    if (choice) out.push(choice);
+  }
+
+  return out;
 }
 
 const RAW_LIST = `
