@@ -1,16 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import WaveDivider from "@/components/WaveDivider";
 import StatCard from "@/components/StatCard";
 import HomeHeroClient from "@/components/HomeHeroClient";
 import { beachnightEvent } from "@/data/beachnightEvent";
 import { useDictionary } from "@/components/LanguageProvider";
+import { onSamePageHashClick } from "@/lib/hashNav";
 
 const dateDisplayClassName =
   "block font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3";
 
 export default function Home() {
+  const pathname = usePathname();
   const t = useDictionary();
   const stats = [
     { stat: "30%", label: t.home.statThreatened },
@@ -52,39 +56,103 @@ export default function Home() {
       <WaveDivider />
 
       <section
-        id="what-beachnight"
-        className="pt-10 pb-14 sm:pt-14 sm:pb-20 px-4 bg-ocean"
-        aria-labelledby="what-beachnight-heading"
+        id="about-beachnight"
+        className="scroll-mt-24 pt-10 pb-14 sm:pt-14 sm:pb-20 px-4 bg-ocean"
+        aria-labelledby="about-beachnight-heading"
       >
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2
-            id="what-beachnight-heading"
+            id="about-beachnight-heading"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-teal text-center mb-10"
+          >
+            {t.about.title}
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+            <div className="space-y-4 text-center lg:text-left">
+              {t.about.missionP1 ? (
+                <p className="font-body text-lg text-white/85 leading-relaxed">{t.about.missionP1}</p>
+              ) : null}
+              {t.about.missionP2 ? (
+                <p className="font-body text-white/85 leading-relaxed">{t.about.missionP2}</p>
+              ) : null}
+              {t.about.missionP3 ? (
+                <p className="font-body text-white/85 leading-relaxed">{t.about.missionP3}</p>
+              ) : null}
+              {t.about.missionP4 ? (
+                <p className="font-body text-white/85 leading-relaxed">{t.about.missionP4}</p>
+              ) : null}
+              {t.about.missionP5 ? (
+                <p className="font-body text-white/70 leading-relaxed">{t.about.missionP5}</p>
+              ) : null}
+              {t.about.missionP6 ? (
+                <p className="font-body text-white/70 leading-relaxed">{t.about.missionP6}</p>
+              ) : null}
+            </div>
+
+            <div className="relative overflow-hidden rounded-2xl border border-teal/20 bg-black/20 shadow-[0_18px_60px_rgba(0,0,0,0.35)]">
+              <Image
+                src="/beach.png"
+                alt={t.about.title}
+                width={1600}
+                height={1067}
+                className="h-[220px] sm:h-[300px] lg:h-[420px] w-full object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                priority={false}
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean/80 via-ocean/10 to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <WaveDivider />
+
+      <section
+        id="participate"
+        className="scroll-mt-24 pt-10 pb-14 sm:pt-14 sm:pb-20 px-4 bg-ocean"
+        aria-labelledby="participate-heading"
+      >
+        <div className="max-w-3xl mx-auto text-center lg:text-left">
+          <h2
+            id="participate-heading"
             className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-teal text-center mb-6"
           >
-            {t.home.whatTitle}
+            {t.about.participateTitle}
           </h2>
-          <p className="font-body text-lg text-white/85 text-center leading-relaxed mb-4">
-            {t.home.whatBody1}
+          <p className="font-body text-lg text-white/85 leading-relaxed mb-4">{t.about.participate1}</p>
+          <p className="font-body text-white/85 leading-relaxed mb-4">
+            {t.about.participate2BeforeLink}
+            <Link href="/join" className="text-teal underline underline-offset-4 hover:text-teal/90">
+              {t.about.participate2LinkText}
+            </Link>
+            {t.about.participate2AfterLink}
           </p>
-          <p className="font-body text-white/70 text-center leading-relaxed mb-8 max-w-2xl mx-auto">
-            {t.home.whatBody2}
-          </p>
+          <p className="font-body text-white/85 leading-relaxed">{t.about.participate3}</p>
+        </div>
+      </section>
 
+      <WaveDivider />
+
+      <section
+        id="when-beachnight"
+        className="scroll-mt-24 pt-10 pb-14 sm:pt-14 sm:pb-20 px-4 bg-ocean"
+        aria-labelledby="when-beachnight-heading"
+      >
+        <div className="max-w-3xl mx-auto">
+          <h2 id="when-beachnight-heading" className="sr-only">
+            {t.home.whenLabel}
+          </h2>
           <div className="rounded-2xl border border-teal/25 bg-ocean/80 backdrop-blur-sm px-6 py-8 sm:px-10 sm:py-10 text-center shadow-[inset_0_1px_0_rgba(0,245,212,0.08)]">
             <p className="text-[0.7rem] sm:text-xs uppercase tracking-[0.28em] text-teal/60 font-semibold mb-4">
               {t.home.whenLabel}
             </p>
             {beachnightEvent.dateTimeIso ? (
-              <time
-                dateTime={beachnightEvent.dateTimeIso}
-                className={dateDisplayClassName}
-              >
+              <time dateTime={beachnightEvent.dateTimeIso} className={dateDisplayClassName}>
                 {beachnightEvent.dateLabel}
               </time>
             ) : (
-              <span className={dateDisplayClassName}>
-                {beachnightEvent.dateLabel}
-              </span>
+              <span className={dateDisplayClassName}>{beachnightEvent.dateLabel}</span>
             )}
             <p className="font-display text-xl sm:text-2xl text-gold font-semibold mb-2">
               {beachnightEvent.timeLabel}
@@ -100,13 +168,32 @@ export default function Home() {
                 {t.home.register}
               </Link>
               <Link
-                href="/about"
+                href="/#about-beachnight"
+                onClick={(e) => onSamePageHashClick(pathname, "/#about-beachnight", e)}
                 className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/5 px-5 py-3 text-sm font-medium text-white/90 hover:bg-white/10 transition-colors min-h-[44px]"
               >
                 {t.home.readStory}
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      <WaveDivider />
+
+      <section
+        id="about-me"
+        className="scroll-mt-24 pt-10 pb-16 sm:pt-14 sm:pb-24 px-4 bg-ocean"
+        aria-labelledby="about-me-heading"
+      >
+        <div className="max-w-3xl mx-auto text-center lg:text-left">
+          <h2
+            id="about-me-heading"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-teal text-center mb-6"
+          >
+            {t.about.aboutMeTitle}
+          </h2>
+          <p className="font-body text-lg text-white/85 leading-relaxed">{t.about.aboutMe}</p>
         </div>
       </section>
 

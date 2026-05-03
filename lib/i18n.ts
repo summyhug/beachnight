@@ -19,8 +19,11 @@ type Dict = {
     statCoastlineCountries: string;
     statOneNight: string;
     whatTitle: string;
-    whatBody1: string;
-    whatBody2: string;
+    whatP1: string;
+    whatP2: string;
+    whatP3: string;
+    whatP4: string;
+    whatP5: string;
     whenLabel: string;
     register: string;
     readStory: string;
@@ -31,14 +34,17 @@ type Dict = {
     missionP1: string;
     missionP2: string;
     missionP3: string;
+    missionP4: string;
+    missionP5: string;
+    missionP6: string;
     participateTitle: string;
     participate1: string;
-    participate2: string;
+    participate2BeforeLink: string;
+    participate2LinkText: string;
+    participate2AfterLink: string;
     participate3: string;
-    dateNote: string;
     aboutMeTitle: string;
-    aboutMeP1: string;
-    aboutMeP2: string;
+    aboutMe: string;
   };
   join: {
     title: string;
@@ -126,9 +132,15 @@ export const dict: Record<Locale, Dict> = {
       statCoastlineCountries: "countries with coastline",
       statOneNight: "to show we care",
       whatTitle: "What Beachnight is",
-      whatBody1:
+      whatP1:
+        "Our beaches are wonderful places. They are magical places between land and water. They give us moments of happiness, fun and peace. For many people, even their livelihoods depend on a beach.",
+      whatP2:
+        "Yet, as it looks today, these extraordinary places are going to disappear one by one as the sea level rises.",
+      whatP3:
+        "For me, even though I am aware of this situation, it’s quite unthinkable to live in a world where most or all of the beaches have just disappeared.",
+      whatP4:
         "Beachnight is intended to create a moment frozen in time. A moment of unity for people living on the coasts all around the world. A moment in which we illuminate the beaches of the world. To cherish their beauty, to thank them for giving us so much happiness and also to spend a joyful, happy night together.",
-      whatBody2:
+      whatP5:
         "Of course Beachnight is also a call for action. A call to motivate people all around the world to make a difference, to make a contribution to vastly reduce greenhouse gas emissions and to save as many beaches as possible.",
       whenLabel: "When is Beachnight",
       register: "Register to participate",
@@ -143,26 +155,29 @@ export const dict: Record<Locale, Dict> = {
         "Yet, as it looks today, these extraordinary places are going to disappear one by one as the sea level rises.",
       missionP3:
         "For me, even though I am aware of this situation, it’s quite unthinkable to live in a world where most or all of the beaches have just disappeared.",
-      participateTitle: "How To Participate",
+      missionP4:
+        "Beachnight is intended to create a moment frozen in time. A moment of unity for people living on the coasts all around the world. A moment in which we illuminate the beaches of the world. To cherish their beauty, to thank them for giving us so much happiness and also to spend a joyful, happy night together.",
+      missionP5:
+        "Of course Beachnight is also a call for action. A call to motivate people all around the world to make a difference, to make a contribution to vastly reduce greenhouse gas emissions and to save as many beaches as possible.",
+      missionP6: "",
+      participateTitle: "How can I participate?",
       participate1:
-        "Beachnight is quite simple: You just go to a beach before sunset.",
-      participate2:
-        "Bring along something to illuminate like candles, torches (if local laws and safety regulations allow), lanterns, or simply your phone.",
+        "Beachnight is quite simple: You just go to a beach before sunset. Bring along something to illuminate like candles, torches (if local laws and safety regulations allow), lanterns or simply your phone. ",
+      participate2BeforeLink: "When will this be? Once there is a date for Beachnight, it will be published here a few weeks in advance. You can also ",
+      participate2LinkText: "sign up here",
+      participate2AfterLink:
+        " and you’ll be notified proactively.",
       participate3:
-        "And until then? Tell your colleagues, friends, and family about Beachnight and get them to sign up as well.",
-      dateNote:
-        "Once there is a date for Beachnight, it will be published here a few weeks in advance. You can also sign up and be notified proactively.",
+        "And until then? Tell your colleagues, friends and family about Beachnight and get them to sign up as well.",
       aboutMeTitle: "About me",
-      aboutMeP1:
-        "I'm Thomas, an ordinary person from Austria, a small landlocked country in Europe. Even though I did not grow up by the sea, I care deeply about the future of the world's beaches.",
-      aboutMeP2:
-        "Beachnight is my contribution to bring people together in a positive, memorable way and inspire practical climate action.",
+      aboutMe:
+        "I’m Thomas, an ordinary guy from Austria, a small landlocked country in Europe. 🙂 I’m concerned about the future of the world’s beaches and would like to make a contribution to save them.",
     },
     join: {
       title: "Join Beachnight",
       subtitle: "Register to take part in the next event. Individuals and groups are welcome.",
       dateNote:
-        "Once the date is finalized, we will notify everyone here a few weeks in advance with practical guidance for participation.",
+        "When will this be? Once there is a date for Beachnight, it will be published here a few weeks in advance. You can also sign up here and you’ll be notified proactively.",
       success:
         "Thank you — you're registered. We'll be in touch at the email you provided.",
       fullName: "Full name",
@@ -204,10 +219,16 @@ export const dict: Record<Locale, Dict> = {
       statCoastlineCountries: "países con costa",
       statOneNight: "para demostrar que nos importa",
       whatTitle: "Qué es Beachnight",
-      whatBody1:
-        "Beachnight crea un momento global de unión en las costas. Personas, familias y organizaciones iluminan playas juntas para celebrar su belleza y recordar al mundo que estos lugares merecen ser protegidos.",
-      whatBody2:
-        "Puedes unirte de forma individual o con una empresa, escuela o comunidad. Es simple, alegre y significativo: una noche compartida en costas de todo el mundo.",
+      whatP1:
+        "Nuestras playas son lugares maravillosos. Son lugares mágicos entre la tierra y el agua. Nos dan momentos de felicidad, diversión y paz. Para muchas personas, incluso sus medios de vida dependen de una playa.",
+      whatP2:
+        "Sin embargo, tal como se ve hoy, estos lugares extraordinarios van a desaparecer uno a uno a medida que sube el nivel del mar.",
+      whatP3:
+        "Para mí, aunque soy consciente de esta situación, es bastante impensable vivir en un mundo donde la mayoría o todas las playas simplemente hayan desaparecido.",
+      whatP4:
+        "Beachnight pretende crear un momento congelado en el tiempo. Un momento de unión para las personas que viven en las costas de todo el mundo. Un momento en el que iluminamos las playas del mundo. Para apreciar su belleza, agradecerles por darnos tanta felicidad y también para pasar una noche alegre y feliz juntos.",
+      whatP5:
+        "Por supuesto, Beachnight también es un llamado a la acción. Un llamado para motivar a personas de todo el mundo a marcar la diferencia, a contribuir a reducir drásticamente las emisiones de gases de efecto invernadero y a salvar tantas playas como sea posible.",
       whenLabel: "Cuándo es Beachnight",
       register: "Regístrate para participar",
       readStory: "Leer la historia completa",
@@ -216,32 +237,34 @@ export const dict: Record<Locale, Dict> = {
       title: "Acerca de Beachnight",
       missionTitle: "Nuestra misión",
       missionP1:
-        "Nuestras playas son lugares extraordinarios entre la tierra y el agua. Nos dan alegría, paz y momentos inolvidables. Para muchas personas, también sostienen medios de vida y comunidades locales.",
+        "Nuestras playas son lugares maravillosos. Son lugares mágicos entre la tierra y el agua. Nos dan momentos de felicidad, diversión y paz. Para muchas personas, incluso sus medios de vida dependen de una playa.",
       missionP2:
-        "Sin embargo, el aumento del nivel del mar y el cambio climático están poniendo en riesgo muchas costas. Beachnight crea un momento compartido: personas de todo el mundo iluminan playas para celebrar su belleza y unirse por su futuro.",
+        "Sin embargo, tal como se ve hoy, estos lugares extraordinarios van a desaparecer uno a uno a medida que sube el nivel del mar.",
       missionP3:
-        "Es un momento global alegre, pero también un llamado a la acción: reducir emisiones, apoyar la protección costera local y salvar tantas playas como sea posible.",
-      participateTitle: "Cómo participar",
+        "Para mí, aunque soy consciente de esta situación, es bastante impensable vivir en un mundo donde la mayoría o todas las playas simplemente hayan desaparecido.",
+      missionP4:
+        "Beachnight pretende crear un momento congelado en el tiempo. Un momento de unión para las personas que viven en las costas de todo el mundo. Un momento en el que iluminamos las playas del mundo. Para apreciar su belleza, agradecerles por darnos tanta felicidad y también para pasar una noche alegre y feliz juntos.",
+      missionP5:
+        "Por supuesto, Beachnight también es un llamado a la acción. Un llamado para motivar a personas de todo el mundo a marcar la diferencia, a contribuir a reducir drásticamente las emisiones de gases de efecto invernadero y a salvar tantas playas como sea posible.",
+      missionP6: "",
+      participateTitle: "¿Cómo puedo participar?",
       participate1:
-        "Beachnight es muy simple: solo ve a una playa antes del atardecer.",
-      participate2:
-        "Lleva algo para iluminar, como velas, antorchas (si la normativa local lo permite), faroles o simplemente tu teléfono.",
+        "Beachnight es bastante simple: solo vas a una playa antes del atardecer. Lleva algo para iluminar, como velas, antorchas (si las leyes y normativas de seguridad locales lo permiten), faroles o simplemente tu teléfono. ",
+      participate2BeforeLink: "¿Cuándo será? Cuando haya una fecha para Beachnight, se publicará aquí con unas semanas de antelación. También puedes ",
+      participate2LinkText: "registrarte aquí",
+      participate2AfterLink: " y te avisaremos de forma proactiva.",
       participate3:
-        "¿Y mientras tanto? Cuéntales a colegas, amigos y familia sobre Beachnight y anímalos a registrarse también.",
-      dateNote:
-        "Cuando haya una fecha para Beachnight, se publicará aquí con unas semanas de antelación. También puedes registrarte para recibir aviso proactivo.",
+        "¿Y mientras tanto? Cuéntales a colegas, amigos y familia sobre Beachnight y consigue que se registren también.",
       aboutMeTitle: "Sobre mí",
-      aboutMeP1:
-        "Soy Thomas, una persona común de Austria, un pequeño país sin costa en Europa. Aunque no crecí junto al mar, me importa profundamente el futuro de las playas del mundo.",
-      aboutMeP2:
-        "Beachnight es mi forma de contribuir: unir personas de manera positiva y memorable, e inspirar acción climática práctica.",
+      aboutMe:
+        "Soy Thomas, un tipo normal de Austria, un pequeño país sin litoral en Europa. 🙂 Me preocupa el futuro de las playas del mundo y me gustaría hacer una contribución para salvarlas.",
     },
     join: {
       title: "Únete a Beachnight",
       subtitle:
         "Regístrate para participar en el próximo evento. Se aceptan personas y grupos.",
       dateNote:
-        "Cuando se confirme la fecha, avisaremos aquí con unas semanas de antelación y compartiremos orientación práctica para participar.",
+        "¿Cuándo será? Cuando haya una fecha para Beachnight, se publicará aquí con unas semanas de antelación. También puedes registrarte aquí y te avisaremos de forma proactiva.",
       success:
         "Gracias: tu registro está completo. Te contactaremos en el correo que proporcionaste.",
       fullName: "Nombre completo",
@@ -283,10 +306,16 @@ export const dict: Record<Locale, Dict> = {
       statCoastlineCountries: "países com litoral",
       statOneNight: "para mostrar que nos importamos",
       whatTitle: "O que é o Beachnight",
-      whatBody1:
-        "O Beachnight cria um momento global de união nas costas. Pessoas, famílias e organizações iluminam praias juntas para celebrar sua beleza e lembrar ao mundo que esses lugares merecem proteção.",
-      whatBody2:
-        "Participe individualmente ou com empresa, escola ou comunidade. É simples, alegre e significativo: uma noite compartilhada em costas do mundo inteiro.",
+      whatP1:
+        "Nossas praias são lugares maravilhosos. São lugares mágicos entre a terra e a água. Elas nos dão momentos de felicidade, diversão e paz. Para muitas pessoas, até os seus meios de vida dependem de uma praia.",
+      whatP2:
+        "No entanto, como parece hoje, esses lugares extraordinários vão desaparecer um a um à medida que o nível do mar sobe.",
+      whatP3:
+        "Para mim, mesmo estando ciente dessa situação, é bastante impensável viver num mundo em que a maioria ou todas as praias simplesmente desapareceram.",
+      whatP4:
+        "O Beachnight pretende criar um momento congelado no tempo. Um momento de união para pessoas que vivem nas costas de todo o mundo. Um momento em que iluminamos as praias do mundo. Para apreciar a sua beleza, agradecer por nos darem tanta felicidade e também para passarmos uma noite alegre e feliz juntos.",
+      whatP5:
+        "Claro que o Beachnight também é um chamado à ação. Um chamado para motivar pessoas em todo o mundo a fazer a diferença, a contribuir para reduzir drasticamente as emissões de gases de efeito estufa e a salvar o máximo possível de praias.",
       whenLabel: "Quando é o Beachnight",
       register: "Inscreva-se para participar",
       readStory: "Ler a história completa",
@@ -295,32 +324,34 @@ export const dict: Record<Locale, Dict> = {
       title: "Sobre o Beachnight",
       missionTitle: "Nossa missão",
       missionP1:
-        "Nossas praias são lugares extraordinários entre a terra e a água. Elas nos dão alegria, paz e momentos inesquecíveis. Para muitas pessoas, também sustentam meios de vida e comunidades locais.",
+        "Nossas praias são lugares maravilhosos. São lugares mágicos entre a terra e a água. Elas nos dão momentos de felicidade, diversão e paz. Para muitas pessoas, até os seus meios de vida dependem de uma praia.",
       missionP2:
-        "No entanto, a elevação do nível do mar e as mudanças climáticas colocam muitas costas em risco. O Beachnight cria um momento compartilhado: pessoas em todo o mundo iluminam praias para celebrar sua beleza e se unir pelo seu futuro.",
+        "No entanto, como parece hoje, esses lugares extraordinários vão desaparecer um a um à medida que o nível do mar sobe.",
       missionP3:
-        "É um momento global alegre, mas também um chamado à ação: reduzir emissões de gases de efeito estufa, apoiar a proteção costeira local e salvar o maior número possível de praias.",
-      participateTitle: "Como participar",
+        "Para mim, mesmo estando ciente dessa situação, é bastante impensável viver num mundo em que a maioria ou todas as praias simplesmente desapareceram.",
+      missionP4:
+        "O Beachnight pretende criar um momento congelado no tempo. Um momento de união para pessoas que vivem nas costas de todo o mundo. Um momento em que iluminamos as praias do mundo. Para apreciar a sua beleza, agradecer por nos darem tanta felicidade e também para passarmos uma noite alegre e feliz juntos.",
+      missionP5:
+        "Claro que o Beachnight também é um chamado à ação. Um chamado para motivar pessoas em todo o mundo a fazer a diferença, a contribuir para reduzir drasticamente as emissões de gases de efeito estufa e a salvar o máximo possível de praias.",
+      missionP6: "",
+      participateTitle: "Como posso participar?",
       participate1:
-        "O Beachnight é bem simples: basta ir a uma praia antes do pôr do sol.",
-      participate2:
-        "Leve algo para iluminar, como velas, tochas (se as leis locais permitirem), lanternas ou simplesmente seu celular.",
+        "O Beachnight é bem simples: você só vai a uma praia antes do pôr do sol. Leve algo para iluminar, como velas, tochas (se as leis e regulamentos de segurança locais permitirem), lanternas ou simplesmente o seu telemóvel. ",
+      participate2BeforeLink: "Quando será? Assim que houver uma data para o Beachnight, ela será publicada aqui algumas semanas antes. Você também pode ",
+      participate2LinkText: "inscrever-se aqui",
+      participate2AfterLink: " e será notificado de forma proativa.",
       participate3:
-        "E até lá? Conte para colegas, amigos e família sobre o Beachnight e incentive todos a se inscreverem também.",
-      dateNote:
-        "Assim que houver uma data para o Beachnight, ela será publicada aqui algumas semanas antes. Você também pode se inscrever para ser avisado proativamente.",
+        "E até lá? Conte a colegas, amigos e família sobre o Beachnight e faça com que eles também se inscrevam.",
       aboutMeTitle: "Sobre mim",
-      aboutMeP1:
-        "Sou Thomas, uma pessoa comum da Áustria, um pequeno país sem litoral na Europa. Mesmo sem ter crescido perto do mar, me preocupo profundamente com o futuro das praias do mundo.",
-      aboutMeP2:
-        "O Beachnight é a minha forma de contribuir: unir pessoas de maneira positiva e memorável e inspirar ação climática prática.",
+      aboutMe:
+        "Sou o Thomas, um cara comum da Áustria, um pequeno país sem litoral na Europa. 🙂 Estou preocupado com o futuro das praias do mundo e gostaria de fazer uma contribuição para salvá-las.",
     },
     join: {
       title: "Participe do Beachnight",
       subtitle:
         "Inscreva-se para participar do próximo evento. Pessoas e grupos são bem-vindos.",
       dateNote:
-        "Quando a data for definida, avisaremos aqui com algumas semanas de antecedência e compartilharemos orientações práticas para participação.",
+        "Quando será? Assim que houver uma data para o Beachnight, ela será publicada aqui algumas semanas antes. Você também pode se inscrever aqui e será notificado de forma proativa.",
       success:
         "Obrigado — sua inscrição foi concluída. Entraremos em contato pelo e-mail informado.",
       fullName: "Nome completo",

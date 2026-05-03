@@ -1,16 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   beachPairings,
   orderPairingsForViewer,
 } from "@/data/beachPairings";
 import { useDictionary } from "@/components/LanguageProvider";
+import { onSamePageHashClick } from "@/lib/hashNav";
 
 const ROTATE_MS = 6000;
 
 export default function HeroHome() {
+  const pathname = usePathname();
   const t = useDictionary();
   const [lines, setLines] = useState(() =>
     beachPairings.map((p) => t.hero.noWithout(p.region, p.beach))
@@ -80,7 +83,8 @@ export default function HeroHome() {
           {t.hero.join}
         </Link>
         <Link
-          href="/about"
+          href="/#about-beachnight"
+          onClick={(e) => onSamePageHashClick(pathname, "/#about-beachnight", e)}
           className="inline-flex min-h-[48px] flex-1 items-center justify-center rounded-lg border border-teal/25 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white/90 backdrop-blur-sm transition hover:border-teal/40 hover:bg-white/10"
         >
           {t.hero.learnMore}

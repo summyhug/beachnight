@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useDictionary, useLanguage } from "@/components/LanguageProvider";
+import { onSamePageHashClick } from "@/lib/hashNav";
 import type { Locale } from "@/lib/i18n";
 
 const localeOptions: { value: Locale; label: string }[] = [
@@ -19,9 +20,15 @@ export default function Navbar() {
   const t = useDictionary();
   const navLinks = [
     { href: "/", label: t.nav.home },
-    { href: "/about", label: t.nav.about },
+    { href: "/#about-beachnight", label: t.nav.about },
     { href: "/join", label: t.nav.join },
   ];
+
+  const linkIsActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    if (href.startsWith("/#")) return false;
+    return pathname === href;
+  };
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-ocean/95 backdrop-blur-md border-b border-teal/20">
@@ -38,10 +45,9 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => onSamePageHashClick(pathname, link.href, e)}
                 className={`font-body text-sm font-medium transition-colors ${
-                  pathname === link.href
-                    ? "text-teal"
-                    : "text-white/80 hover:text-teal"
+                  linkIsActive(link.href) ? "text-teal" : "text-white/80 hover:text-teal"
                 }`}
               >
                 {link.label}
@@ -129,9 +135,12 @@ export default function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => {
+                      onSamePageHashClick(pathname, link.href, e);
+                      setMobileOpen(false);
+                    }}
                     className={`block py-3 px-4 rounded-lg font-body text-base font-medium min-h-[44px] flex items-center transition-colors ${
-                      pathname === link.href
+                      linkIsActive(link.href)
                         ? "text-teal bg-teal/10"
                         : "text-white/80 hover:text-teal hover:bg-white/5"
                     }`}
