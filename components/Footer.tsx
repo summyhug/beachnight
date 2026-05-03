@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { beachnightHashtags } from "@/data/beachnightShare";
 import { useDictionary } from "@/components/LanguageProvider";
+import { onSamePageHashClick } from "@/lib/hashNav";
 
 function IconX({ className }: { className?: string }) {
   return (
@@ -101,6 +103,7 @@ const socialLinks = [
 ] as const;
 
 export default function Footer() {
+  const pathname = usePathname();
   const [email, setEmail] = useState("");
   const t = useDictionary();
 
@@ -131,12 +134,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               {[
-                { href: "/about", label: t.nav.about },
+                { href: "/#about-beachnight", label: t.nav.about },
                 { href: "/join", label: t.nav.join },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
+                    onClick={(e) => onSamePageHashClick(pathname, href, e)}
                     className="text-white/70 hover:text-teal font-body text-sm transition-colors"
                   >
                     {label}
