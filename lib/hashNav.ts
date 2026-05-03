@@ -5,7 +5,7 @@ import type { MouseEvent } from "react";
  * the target pathname (e.g. Home → `/#section`). Handle that case manually.
  */
 export function onSamePageHashClick(
-  pathname: string,
+  pathname: string | null,
   href: string,
   e: MouseEvent<HTMLAnchorElement>
 ) {
