@@ -16,9 +16,8 @@ const ROTATE_MS = 6000;
 export default function HeroHome() {
   const pathname = usePathname();
   const t = useDictionary();
-  const [pairingOrder, setPairingOrder] = useState<BeachPairing[]>(() =>
-    buildTickerPairingsOrder(beachPairings, null)
-  );
+  // Deterministic initial order avoids hydration mismatch (SSR vs client `Math.random`).
+  const [pairingOrder, setPairingOrder] = useState<BeachPairing[]>(() => [...beachPairings]);
   const [tick, setTick] = useState(0);
   const [mounted, setMounted] = useState(false);
 

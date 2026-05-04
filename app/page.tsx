@@ -19,7 +19,7 @@ export default function Home() {
   const stats = [
     { stat: t.home.statThreatenedHeadline, label: t.home.statThreatened },
     { stat: t.home.statCoastlineHeadline, label: t.home.statCoastlineCountries },
-    { stat: "1 night", label: t.home.statOneNight },
+    { stat: t.home.statOneNightHeadline, label: t.home.statOneNight },
   ];
 
   return (
