@@ -19,6 +19,7 @@ type Dict = {
     statThreatened: string;
     statCoastlineHeadline: string;
     statCoastlineCountries: string;
+    statOneNightHeadline: string;
     statOneNight: string;
     whatTitle: string;
     whatP1: string;
@@ -130,20 +131,18 @@ export const dict: Record<Locale, Dict> = {
     },
     home: {
       statsHeading: "Beachnight by the numbers",
-      statThreatenedHeadline: "Rising seas",
-      statThreatened:
-        "Climate projections show widespread sandy‑beach erosion and retreat; how much and how fast depends on warming, local geography, and shoreline type.",
-      statCoastlineHeadline: "~150",
-      statCoastlineCountries:
-        "UN member states border the ocean (landlocked members are the exception; counts differ if territories are included).",
-      statOneNight: "to show we care",
+      statThreatenedHeadline: "Half",
+      statThreatened: "the world’s beaches may be gone by 2100.",
+      statCoastlineHeadline: "Every",
+      statCoastlineCountries: "coast is invited.",
+      statOneNightHeadline: "1 night",
+      statOneNight: "to save our beaches.",
       whatTitle: "What Beachnight is",
       whatP1:
         "Our beaches are wonderful places. They are magical places between land and water. They give us moments of happiness, fun and peace. For many people, even their livelihoods depend on a beach.",
       whatP2:
-        "Yet, as it looks today, these extraordinary places are going to disappear one by one as the sea level rises.",
-      whatP3:
-        "For me, even though I am aware of this situation, it’s quite unthinkable to live in a world where most or all of the beaches have just disappeared.",
+        "Yet, as it looks today, these extraordinary places are going to disappear one by one as the sea level rises. Even though we are aware of this consequence from climate change, it’s quite unthinkable to live in a world where most or all of the beaches have just disappeared.",
+      whatP3: "",
       whatP4:
         "Beachnight is intended to create a moment frozen in time. A moment of unity for people living on the coasts all around the world. A moment in which we illuminate the beaches of the world. To cherish their beauty, to thank them for giving us so much happiness and also to spend a joyful, happy night together.",
       whatP5:
@@ -158,9 +157,8 @@ export const dict: Record<Locale, Dict> = {
       missionP1:
         "Our beaches are wonderful places. They are magical places between land and water. They give us moments of happiness, fun and peace. For many people, even their livelihoods depend on a beach.",
       missionP2:
-        "Yet, as it looks today, these extraordinary places are going to disappear one by one as the sea level rises.",
-      missionP3:
-        "For me, even though I am aware of this situation, it’s quite unthinkable to live in a world where most or all of the beaches have just disappeared.",
+        "Yet, as it looks today, these extraordinary places are going to disappear one by one as the sea level rises. Even though we are aware of this consequence from climate change, it’s quite unthinkable to live in a world where most or all of the beaches have just disappeared.",
+      missionP3: "",
       missionP4:
         "Beachnight is intended to create a moment frozen in time. A moment of unity for people living on the coasts all around the world. A moment in which we illuminate the beaches of the world. To cherish their beauty, to thank them for giving us so much happiness and also to spend a joyful, happy night together.",
       missionP5:
@@ -223,20 +221,18 @@ export const dict: Record<Locale, Dict> = {
     },
     home: {
       statsHeading: "Beachnight en cifras",
-      statThreatenedHeadline: "Mar en alza",
-      statThreatened:
-        "Los estudios climáticos proyectan erosión y retroceso generalizados de playas arenosas; el alcance depende del calentamiento, la geografía local y el tipo de costa.",
-      statCoastlineHeadline: "~150",
-      statCoastlineCountries:
-        "Estados miembros de la ONU tienen costa oceánica (los sin litoral son la excepción; las cifras varían si se incluyen territorios).",
-      statOneNight: "para demostrar que nos importa",
+      statThreatenedHeadline: "Mitad",
+      statThreatened: "de las playas del mundo pueden desaparecer hacia 2100.",
+      statCoastlineHeadline: "Cada",
+      statCoastlineCountries: "costa está invitada.",
+      statOneNightHeadline: "1 noche",
+      statOneNight: "para proteger nuestras playas.",
       whatTitle: "Qué es Beachnight",
       whatP1:
         "Nuestras playas son lugares maravillosos. Son lugares mágicos entre la tierra y el agua. Nos dan momentos de felicidad, diversión y paz. Para muchas personas, incluso sus medios de vida dependen de una playa.",
       whatP2:
-        "Sin embargo, tal como se ve hoy, estos lugares extraordinarios van a desaparecer uno a uno a medida que sube el nivel del mar.",
-      whatP3:
-        "Para mí, aunque soy consciente de esta situación, es bastante impensable vivir en un mundo donde la mayoría o todas las playas simplemente hayan desaparecido.",
+        "Sin embargo, tal como se ve hoy, estos lugares extraordinarios van a desaparecer uno a uno a medida que sube el nivel del mar. Aunque somos conscientes de esta consecuencia del cambio climático, es bastante impensable imaginar un mundo donde la mayoría o todas las playas hayan desaparecido.",
+      whatP3: "",
       whatP4:
         "Beachnight pretende crear un momento congelado en el tiempo. Un momento de unión para las personas que viven en las costas de todo el mundo. Un momento en el que iluminamos las playas del mundo. Para apreciar su belleza, agradecerles por darnos tanta felicidad y también para pasar una noche alegre y feliz juntos.",
       whatP5:
@@ -251,9 +247,8 @@ export const dict: Record<Locale, Dict> = {
       missionP1:
         "Nuestras playas son lugares maravillosos. Son lugares mágicos entre la tierra y el agua. Nos dan momentos de felicidad, diversión y paz. Para muchas personas, incluso sus medios de vida dependen de una playa.",
       missionP2:
-        "Sin embargo, tal como se ve hoy, estos lugares extraordinarios van a desaparecer uno a uno a medida que sube el nivel del mar.",
-      missionP3:
-        "Para mí, aunque soy consciente de esta situación, es bastante impensable vivir en un mundo donde la mayoría o todas las playas simplemente hayan desaparecido.",
+        "Sin embargo, tal como se ve hoy, estos lugares extraordinarios van a desaparecer uno a uno a medida que sube el nivel del mar. Aunque somos conscientes de esta consecuencia del cambio climático, es bastante impensable imaginar un mundo donde la mayoría o todas las playas hayan desaparecido.",
+      missionP3: "",
       missionP4:
         "Beachnight pretende crear un momento congelado en el tiempo. Un momento de unión para las personas que viven en las costas de todo el mundo. Un momento en el que iluminamos las playas del mundo. Para apreciar su belleza, agradecerles por darnos tanta felicidad y también para pasar una noche alegre y feliz juntos.",
       missionP5:
@@ -316,20 +311,18 @@ export const dict: Record<Locale, Dict> = {
     },
     home: {
       statsHeading: "Beachnight em números",
-      statThreatenedHeadline: "Mar a subir",
-      statThreatened:
-        "Estudos climáticos projetam erosão e recuo generalizados de praias arenosas; o quanto e quão rápido depende do aquecimento, da geografia local e do tipo de costa.",
-      statCoastlineHeadline: "~150",
-      statCoastlineCountries:
-        "Estados-membros da ONU fazem fronteira com o oceano (os sem litoral são a exceção; totais mudam se territórios forem incluídos).",
-      statOneNight: "para mostrar que nos importamos",
+      statThreatenedHeadline: "Metade",
+      statThreatened: "das praias do mundo pode desaparecer até 2100.",
+      statCoastlineHeadline: "Cada",
+      statCoastlineCountries: "litoral é bem-vindo.",
+      statOneNightHeadline: "1 noite",
+      statOneNight: "para salvar as nossas praias.",
       whatTitle: "O que é o Beachnight",
       whatP1:
         "Nossas praias são lugares maravilhosos. São lugares mágicos entre a terra e a água. Elas nos dão momentos de felicidade, diversão e paz. Para muitas pessoas, até os seus meios de vida dependem de uma praia.",
       whatP2:
-        "No entanto, como parece hoje, esses lugares extraordinários vão desaparecer um a um à medida que o nível do mar sobe.",
-      whatP3:
-        "Para mim, mesmo estando ciente dessa situação, é bastante impensável viver num mundo em que a maioria ou todas as praias simplesmente desapareceram.",
+        "No entanto, como parece hoje, esses lugares extraordinários vão desaparecer um a um à medida que o nível do mar sobe. Mesmo sabendo desta consequência das alterações climáticas, é quase impensável imaginar um mundo em que a maioria ou todas as praias simplesmente desapareçam.",
+      whatP3: "",
       whatP4:
         "O Beachnight pretende criar um momento congelado no tempo. Um momento de união para pessoas que vivem nas costas de todo o mundo. Um momento em que iluminamos as praias do mundo. Para apreciar a sua beleza, agradecer por nos darem tanta felicidade e também para passarmos uma noite alegre e feliz juntos.",
       whatP5:
@@ -344,9 +337,8 @@ export const dict: Record<Locale, Dict> = {
       missionP1:
         "Nossas praias são lugares maravilhosos. São lugares mágicos entre a terra e a água. Elas nos dão momentos de felicidade, diversão e paz. Para muitas pessoas, até os seus meios de vida dependem de uma praia.",
       missionP2:
-        "No entanto, como parece hoje, esses lugares extraordinários vão desaparecer um a um à medida que o nível do mar sobe.",
-      missionP3:
-        "Para mim, mesmo estando ciente dessa situação, é bastante impensável viver num mundo em que a maioria ou todas as praias simplesmente desapareceram.",
+        "No entanto, como parece hoje, esses lugares extraordinários vão desaparecer um a um à medida que o nível do mar sobe. Mesmo sabendo desta consequência das alterações climáticas, é quase impensável imaginar um mundo em que a maioria ou todas as praias simplesmente desapareçam.",
+      missionP3: "",
       missionP4:
         "O Beachnight pretende criar um momento congelado no tempo. Um momento de união para pessoas que vivem nas costas de todo o mundo. Um momento em que iluminamos as praias do mundo. Para apreciar a sua beleza, agradecer por nos darem tanta felicidade e também para passarmos uma noite alegre e feliz juntos.",
       missionP5:
