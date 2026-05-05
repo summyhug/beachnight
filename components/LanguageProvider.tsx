@@ -65,5 +65,5 @@ export function useLanguage() {
 
 export function useDictionary() {
   const { locale } = useLanguage();
-  return dict[locale];
+  return dict[locale] ?? dict[DEFAULT_LOCALE];
 }

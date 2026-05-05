@@ -13,6 +13,12 @@ export default function StatCard({ stat, label, index }: StatCardProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduceMotion.matches) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

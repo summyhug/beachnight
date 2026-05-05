@@ -11,6 +11,20 @@ const localeOptions: { value: Locale; label: string }[] = [
   { value: "en", label: "EN" },
   { value: "es", label: "ES" },
   { value: "pt", label: "PT" },
+  { value: "fr", label: "FR" },
+  { value: "de", label: "DE" },
+  { value: "it", label: "IT" },
+  { value: "el", label: "Ελληνικά" },
+  { value: "tr", label: "TR" },
+  { value: "zh-Hans", label: "简体" },
+  { value: "zh-Hant", label: "繁體" },
+  { value: "ja", label: "日本語" },
+  { value: "ko", label: "한국어" },
+  { value: "vi", label: "Tiếng Việt" },
+  { value: "th", label: "ไทย" },
+  { value: "id", label: "Bahasa" },
+  { value: "hi", label: "हिन्दी" },
+  { value: "ar", label: "العربية" },
 ];
 
 export default function Navbar() {
@@ -60,7 +74,7 @@ export default function Navbar() {
               id="language-select-desktop"
               value={locale}
               onChange={(e) => setLocale(e.target.value as Locale)}
-              className="w-[74px] bg-white/5 border border-teal/30 text-white/90 text-xs font-semibold tracking-wide rounded px-2 py-1.5 focus:outline-none focus:border-teal"
+              className="min-w-[5.5rem] max-w-[10rem] bg-white/5 border border-teal/30 text-white/90 text-xs font-semibold tracking-wide rounded px-2 py-1.5 focus:outline-none focus:border-teal"
             >
               {localeOptions.map((option) => (
                 <option

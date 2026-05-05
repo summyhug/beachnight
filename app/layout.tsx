@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DocumentLang from "@/components/DocumentLang";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const viewport: Viewport = {
@@ -33,6 +34,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased min-h-screen flex flex-col">
         <LanguageProvider>
+          <DocumentLang />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
