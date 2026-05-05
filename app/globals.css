@@ -24,6 +24,12 @@ body {
     opacity: 1 !important;
     transform: none !important;
   }
+
+  /* Hero title uses fade-in from opacity 0; without this, some browsers leave it invisible when motion is reduced. */
+  .animate-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+  }
 }
 
 /* Wave divider animation */

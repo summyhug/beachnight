@@ -152,13 +152,13 @@ export default function Home() {
                 {beachnightEvent.dateLabel}
               </time>
             ) : (
-              <span className={dateDisplayClassName}>{beachnightEvent.dateLabel}</span>
+              <span className={dateDisplayClassName}>{t.home.whenDateTbd}</span>
             )}
             <p className="font-display text-xl sm:text-2xl text-gold font-semibold mb-2">
-              {beachnightEvent.timeLabel}
+              {t.home.whenTimeLabel}
             </p>
             <p className="font-body text-sm text-white/65 max-w-md mx-auto leading-relaxed">
-              {beachnightEvent.timeNote}
+              {t.home.whenTimeNote}
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <Link

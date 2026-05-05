@@ -1,0 +1,11 @@
+---
+description: Keep site translations aligned when English copy changes
+globs: lib/i18n/**/*.ts
+alwaysApply: false
+---
+
+# i18n maintenance (Beachnight)
+
+- **Source of meaning:** Treat `lib/i18n/locales/en.ts` as the canonical English copy. When you add, remove, or change user-visible strings in `en`, apply the **same structural change** to every other file under `lib/i18n/locales/` (same keys on the `Dict` object, same placeholders like `{join}`, `#{tag1}`, and the `noWithout(region, beach)` signature).
+- **Types:** If the English shape changes, update `lib/i18n/types.ts` first, then fix all locale files and `lib/i18n/index.ts` (`Locale`, `dict`, `LOCALE_BCP47`, `SUPPORTED_LOCALES`, `localeFromCountry` if needed).
+- **Do not** leave non-English locales pointing at outdated English paragraphs while `en` says something new—either translate the updated meaning or, if blocked, mirror English temporarily and add a short `// TODO: translate` comment on that entry only (avoid blanket TODOs).
