@@ -14,7 +14,7 @@ export default function HomeHeroClient() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
       <HeroVideoBackground />
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 w-full min-w-0 max-w-4xl mx-auto px-4 text-center">
         <HeroHome />
       </div>
       <a
