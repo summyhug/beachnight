@@ -6,7 +6,7 @@ export const th: Dict = {
     title: "โลกไม่มีไม่ได้",
     join: "ร่วม Beachnight",
     learnMore: "เรียนรู้เพิ่มเติม",
-    noWithout: (region, beach) => `ไม่มี${beach} ก็ไม่มี${region}`,
+    noWithout: (region, beach, _deTickerLead) => `ไม่มี ${beach} ก็ไม่มี ${region}.`,
   },
   home: {
     statsHeading: "Beachnight ในตัวเลข",

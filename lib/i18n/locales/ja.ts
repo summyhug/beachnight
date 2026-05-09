@@ -6,7 +6,7 @@ export const ja: Dict = {
     title: "世界なき",
     join: "Beachnight に参加",
     learnMore: "詳しく見る",
-    noWithout: (region, beach) => `${beach}のない${region}はない。`,
+    noWithout: (region, beach, _deTickerLead) => `${beach}のない${region}はない。`,
   },
   home: {
     statsHeading: "数字で見る Beachnight",

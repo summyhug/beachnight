@@ -22,7 +22,10 @@ export default function HeroHome() {
   const [mounted, setMounted] = useState(false);
 
   const lines = useMemo(
-    () => pairingOrder.map((p) => t.hero.noWithout(p.region, p.beach)),
+    () =>
+      pairingOrder.map((p) =>
+        t.hero.noWithout(p.region, p.beach, p.deTickerLead)
+      ),
     [pairingOrder, t.hero]
   );
 

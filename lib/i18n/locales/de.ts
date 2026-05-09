@@ -6,7 +6,10 @@ export const de: Dict = {
     title: "Keine Welt ohne",
     join: "Beachnight beitreten",
     learnMore: "Mehr erfahren",
-    noWithout: (region, beach) => `Keine ${region} ohne ${beach}.`,
+    noWithout: (region, beach, deTickerLead) => {
+      const lead = deTickerLead === "keine" ? "Keine" : "Kein";
+      return `${lead} ${region} ohne ${beach}.`;
+    },
   },
   home: {
     statsHeading: "Beachnight in Zahlen",
@@ -25,7 +28,7 @@ export const de: Dict = {
     whatP4:
       "Beachnight soll einen Moment in der Zeit einfrieren. Einen Moment der Solidarität für Menschen an Küsten auf der ganzen Welt. Einen Moment, in dem wir die Strände der Welt erleuchten. Um ihre Schönheit zu würdigen, uns für so viel Glück zu bedanken und gemeinsam eine fröhliche, glückliche Nacht zu erleben.",
     whatP5:
-      "Natürlich ist Beachnight auch ein Aufruf zum Handeln. Ein Aufruf, Menschen weltweit zu motivieren, etwas zu beweigen, Treibhausgasemissionen stark zu senken und so viele Strände wie möglich zu retten.",
+      "Natürlich ist Beachnight auch ein Aufruf zum Handeln. Ein Aufruf, Menschen weltweit zu motivieren, etwas zu bewirken, Treibhausgasemissionen stark zu senken und so viele Strände wie möglich zu retten.",
     whenLabel: "Wann ist Beachnight",
     whenDateTbd: "Datum wird bekannt gegeben",
     whenTimeLabel: "Kurz vor Sonnenuntergang",
@@ -45,7 +48,7 @@ export const de: Dict = {
     missionP4:
       "Beachnight soll einen Moment in der Zeit einfrieren. Einen Moment der Solidarität für Menschen an Küsten auf der ganzen Welt. Einen Moment, in dem wir die Strände der Welt erleuchten. Um ihre Schönheit zu würdigen, uns für so viel Glück zu bedanken und gemeinsam eine fröhliche, glückliche Nacht zu erleben.",
     missionP5:
-      "Natürlich ist Beachnight auch ein Aufruf zum Handeln. Ein Aufruf, Menschen weltweit zu motivieren, etwas zu beweigen, Treibhausgasemissionen stark zu senken und so viele Strände wie möglich zu retten.",
+      "Natürlich ist Beachnight auch ein Aufruf zum Handeln. Ein Aufruf, Menschen weltweit zu motivieren, etwas zu bewirken, Treibhausgasemissionen stark zu senken und so viele Strände wie möglich zu retten.",
     missionP6: "",
     participateTitle: "Wie kann ich mitmachen?",
     participate1:

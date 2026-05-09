@@ -6,7 +6,7 @@ export const tr: Dict = {
     title: "Dünya onsuz",
     join: "Beachnight’e katıl",
     learnMore: "Daha fazla bilgi",
-    noWithout: (region, beach) => `${beach} olmadan ${region} olmaz.`,
+    noWithout: (region, beach, _deTickerLead) => `${beach} olmadan ${region} olmaz.`,
   },
   home: {
     statsHeading: "Beachnight rakamlarla",

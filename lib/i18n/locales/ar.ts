@@ -6,7 +6,7 @@ export const ar: Dict = {
     title: "لا عالم بلا",
     join: "انضم إلى Beachnight",
     learnMore: "اعرف المزيد",
-    noWithout: (region, beach) => `لا ${region} بلا ${beach}.`,
+    noWithout: (region, beach, _deTickerLead) => `لا ${region} بلا ${beach}.`,
   },
   home: {
     statsHeading: "Beachnight بالأرقام",
