@@ -11,11 +11,11 @@ export const es: Dict = {
     title: "No hay mundo sin",
     join: "Únete a Beachnight",
     learnMore: "Saber más",
-    noWithout: (region, beach) => `No hay ${region} sin ${beach}.`,
+    noWithout: (region, beach, _deTickerLead) => `No hay ${region} sin ${beach}.`,
   },
   home: {
     statsHeading: "Beachnight en cifras",
-    statThreatenedHeadline: "Mitad",
+    statThreatenedHeadline: "La mitad",
     statThreatened: "de las playas del mundo pueden desaparecer hacia 2100.",
     statCoastlineHeadline: "Cada",
     statCoastlineCountries: "costa está invitada.",

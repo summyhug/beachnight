@@ -6,7 +6,7 @@ export const vi: Dict = {
     title: "Thế giới không thể thiếu",
     join: "Tham gia Beachnight",
     learnMore: "Tìm hiểu thêm",
-    noWithout: (region, beach) => `Không có ${beach} thì không có ${region}.`,
+    noWithout: (region, beach, _deTickerLead) => `Không có ${beach} thì không có ${region}.`,
   },
   home: {
     statsHeading: "Beachnight qua con số",

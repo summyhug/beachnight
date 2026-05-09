@@ -6,7 +6,7 @@ export const ko: Dict = {
     title: "해변이 빛나는 밤",
     join: "Beachnight 참여",
     learnMore: "더 알아보기",
-    noWithout: (region, beach) => `${beach} 없이 ${region}도 없다.`,
+    noWithout: (region, beach, _deTickerLead) => `${beach} 없이 ${region}도 없다.`,
   },
   home: {
     statsHeading: "숫자로 보는 Beachnight",

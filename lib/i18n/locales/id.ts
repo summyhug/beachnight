@@ -3,10 +3,10 @@ import type { Dict } from "../types";
 export const id: Dict = {
   nav: { home: "Beranda", about: "Tentang", join: "Ikut", language: "Bahasa" },
   hero: {
-    title: "Tiada dunia tanpa",
+    title: "Tak ada dunia tanpa",
     join: "Ikut Beachnight",
     learnMore: "Pelajari lebih lanjut",
-    noWithout: (region, beach) => `Tiada ${region} tanpa ${beach}.`,
+    noWithout: (region, beach, _deTickerLead) => `Tak ada ${region} tanpa ${beach}.`,
   },
   home: {
     statsHeading: "Beachnight dalam angka",

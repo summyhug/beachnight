@@ -8,6 +8,8 @@ export type BeachPairing = {
   beach: string;
   line: string;
   countryCode: string;
+  /** When `'keine'`, German ticker (`de`) uses **Keine** before `region`; otherwise **Kein**. */
+  deTickerLead?: "keine";
 };
 
 export function lineForPair(p: BeachPairing): string {
@@ -397,6 +399,42 @@ function resolveCountryCode(region: string, countryHint: string): string {
   const fromHint = countryHintToCode(countryHint);
   if (fromHint) return fromHint;
   return COUNTRY_CODE_FALLBACK_BY_REGION[region] ?? "ZZ";
+}
+
+/** Curated plurals / island-groups; German sounds better with *Keine* than *Kein*. */
+const REGION_DE_KEINE_EXACT = new Set<string>([
+  "Faroe Islands",
+  "Aran Islands",
+  "Andaman Islands",
+  "Bangka Belitung Islands",
+  "Chàm Islands",
+  "Goto Islands",
+  "Kepulauan Seribu Islands",
+  "Raja Ampat Islands",
+  "Solomon Islands",
+  "Marshall Islands",
+  "Matsu Islands",
+  "Lofoten",
+  "Açores",
+  "Turks and Caicos",
+  "Philippines",
+  "Maldives",
+  "Netherlands",
+  "Comoros",
+  "Seychelles",
+  "Orkney",
+  "Shetland",
+  "Lewis and Harris",
+  "Kiribati",
+  "Tuvalu",
+]);
+
+/** Also treat any newly added …Islands / …Isles regions as plural-style for German ticker. */
+function pairingUsesDeKeine(region: string): boolean {
+  if (REGION_DE_KEINE_EXACT.has(region)) return true;
+  if (/\bIslands\b/i.test(region)) return true;
+  if (/\bIsles\b/i.test(region)) return true;
+  return false;
 }
 
 /** `region<TAB>countryHint<TAB>beach` — countryHint may be empty if inferrable from region. */
@@ -851,10 +889,12 @@ Maranhão	BR	Atins Beach
 
 function toPairing(region: string, beach: string, countryHint: string): BeachPairing {
   const countryCode = resolveCountryCode(region, countryHint);
+  const deTickerLead = pairingUsesDeKeine(region) ? ("keine" as const) : undefined;
   return {
     region,
     beach,
     countryCode,
+    deTickerLead,
     line: `No ${region} without ${beach}.`,
   };
 }

@@ -6,7 +6,7 @@ export const zhHans: Dict = {
     title: "世界离不开",
     join: "加入 Beachnight",
     learnMore: "了解更多",
-    noWithout: (region, beach) => `没有${beach}，就没有${region}。`,
+    noWithout: (region, beach, _deTickerLead) => `没有${beach}，就没有${region}。`,
   },
   home: {
     statsHeading: "Beachnight 数据一览",

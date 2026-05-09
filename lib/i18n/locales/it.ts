@@ -6,7 +6,7 @@ export const it: Dict = {
     title: "Nessun mondo senza",
     join: "Unisciti a Beachnight",
     learnMore: "Scopri di più",
-    noWithout: (region, beach) => `Non c'è ${region} senza ${beach}.`,
+    noWithout: (region, beach, _deTickerLead) => `Non c'è ${region} senza ${beach}.`,
   },
   home: {
     statsHeading: "Beachnight in numeri",

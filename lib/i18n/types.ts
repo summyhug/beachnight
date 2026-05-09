@@ -9,7 +9,7 @@ export type Dict = {
     title: string;
     join: string;
     learnMore: string;
-    noWithout: (region: string, beach: string) => string;
+    noWithout: (region: string, beach: string, deTickerLead?: "keine") => string;
   };
   home: {
     statsHeading: string;

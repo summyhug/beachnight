@@ -11,7 +11,7 @@ export const pt: Dict = {
     title: "Não há mundo sem",
     join: "Participe do Beachnight",
     learnMore: "Saiba mais",
-    noWithout: (region, beach) => `Não há ${region} sem ${beach}.`,
+    noWithout: (region, beach, _deTickerLead) => `Não há ${region} sem ${beach}.`,
   },
   home: {
     statsHeading: "Beachnight em números",

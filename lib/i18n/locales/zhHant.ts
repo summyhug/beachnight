@@ -6,7 +6,7 @@ export const zhHant: Dict = {
     title: "世界離不開",
     join: "加入 Beachnight",
     learnMore: "了解更多",
-    noWithout: (region, beach) => `沒有${beach}，就沒有${region}。`,
+    noWithout: (region, beach, _deTickerLead) => `沒有${beach}，就沒有${region}。`,
   },
   home: {
     statsHeading: "Beachnight 數據一覽",
