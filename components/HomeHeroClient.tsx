@@ -18,7 +18,7 @@ export default function HomeHeroClient() {
         <HeroHome />
       </div>
       <a
-        href="#stats"
+        href="#about-beachnight"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 p-2 -m-2 text-teal/70 hover:text-teal transition-colors animate-bounce min-w-[44px] min-h-[44px] flex items-center justify-center"
         aria-label="Scroll to highlights"
       >
