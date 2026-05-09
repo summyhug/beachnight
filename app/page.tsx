@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import WaveDivider from "@/components/WaveDivider";
@@ -12,6 +11,9 @@ import { onSamePageHashClick } from "@/lib/hashNav";
 
 const dateDisplayClassName =
   "block font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3";
+
+// Toggle to bring the hero stat cards back without re-wiring the section.
+const SHOW_HERO_STATS = false;
 
 export default function Home() {
   const pathname = usePathname();
@@ -28,39 +30,40 @@ export default function Home() {
 
       <WaveDivider />
 
-      <section
-        id="stats"
-        className="pt-14 pb-10 sm:pt-20 sm:pb-14 px-4 bg-ocean"
-        aria-labelledby="stats-heading"
-      >
-        <h2
-          id="stats-heading"
-          className="sr-only"
-        >
-          {t.home.statsHeading}
-        </h2>
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {stats.map((s, i) => (
-              <StatCard
-                key={s.label}
-                stat={s.stat}
-                label={s.label}
-                index={i}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      {SHOW_HERO_STATS ? (
+        <>
+          <section
+            id="stats"
+            className="pt-14 pb-10 sm:pt-20 sm:pb-14 px-4 bg-ocean"
+            aria-labelledby="stats-heading"
+          >
+            <h2 id="stats-heading" className="sr-only">
+              {t.home.statsHeading}
+            </h2>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                {stats.map((s, i) => (
+                  <StatCard
+                    key={s.label}
+                    stat={s.stat}
+                    label={s.label}
+                    index={i}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
 
-      <WaveDivider />
+          <WaveDivider />
+        </>
+      ) : null}
 
       <section
         id="about-beachnight"
         className="scroll-mt-24 pt-10 pb-14 sm:pt-14 sm:pb-20 px-4 bg-ocean"
         aria-labelledby="about-beachnight-heading"
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <h2
             id="about-beachnight-heading"
             className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-teal text-center mb-10"
@@ -68,40 +71,25 @@ export default function Home() {
             {t.about.title}
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-            <div className="space-y-4 text-center lg:text-left">
-              {t.about.missionP1 ? (
-                <p className="font-body text-lg text-white/85 leading-relaxed">{t.about.missionP1}</p>
-              ) : null}
-              {t.about.missionP2 ? (
-                <p className="font-body text-white/85 leading-relaxed">{t.about.missionP2}</p>
-              ) : null}
-              {t.about.missionP3 ? (
-                <p className="font-body text-white/85 leading-relaxed">{t.about.missionP3}</p>
-              ) : null}
-              {t.about.missionP4 ? (
-                <p className="font-body text-white/85 leading-relaxed">{t.about.missionP4}</p>
-              ) : null}
-              {t.about.missionP5 ? (
-                <p className="font-body text-white/70 leading-relaxed">{t.about.missionP5}</p>
-              ) : null}
-              {t.about.missionP6 ? (
-                <p className="font-body text-white/70 leading-relaxed">{t.about.missionP6}</p>
-              ) : null}
-            </div>
-
-            <div className="relative overflow-hidden rounded-2xl border border-teal/20 bg-black/20 shadow-[0_18px_60px_rgba(0,0,0,0.35)]">
-              <Image
-                src="/beach.png"
-                alt={t.about.title}
-                width={1600}
-                height={1067}
-                className="h-[220px] sm:h-[300px] lg:h-[420px] w-full object-cover"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                priority={false}
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean/80 via-ocean/10 to-transparent" />
-            </div>
+          <div className="space-y-4 text-center lg:text-left">
+            {t.about.missionP1 ? (
+              <p className="font-body text-lg text-white/85 leading-relaxed">{t.about.missionP1}</p>
+            ) : null}
+            {t.about.missionP2 ? (
+              <p className="font-body text-white/85 leading-relaxed">{t.about.missionP2}</p>
+            ) : null}
+            {t.about.missionP3 ? (
+              <p className="font-body text-white/85 leading-relaxed">{t.about.missionP3}</p>
+            ) : null}
+            {t.about.missionP4 ? (
+              <p className="font-body text-white/85 leading-relaxed">{t.about.missionP4}</p>
+            ) : null}
+            {t.about.missionP5 ? (
+              <p className="font-body text-white/70 leading-relaxed">{t.about.missionP5}</p>
+            ) : null}
+            {t.about.missionP6 ? (
+              <p className="font-body text-white/70 leading-relaxed">{t.about.missionP6}</p>
+            ) : null}
           </div>
         </div>
       </section>
