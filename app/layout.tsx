@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DocumentLang from "@/components/DocumentLang";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -39,6 +40,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
